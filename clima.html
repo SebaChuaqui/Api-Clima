@@ -17,19 +17,20 @@
 
                 var ciudad = $("input").val();
                 var API_URL = "https://api.openweathermap.org/data/2.5/weather?q=" + ciudad + 
-                    "&units=metric&appid=7bf4abbbb051a4972d970fae729d46e2";
+                    "&units=metric&lang=sp&appid=7bf4abbbb051a4972d970fae729d46e2";
                 
 
                 $.get(API_URL, function (response) {
                     var result = "<h4>" + response.name + "</h4>" +
                         "<ul>" +
-                        "<li> T° Min: " + response.main.temp_min + " C° </li>" +
-                        "<li> T° Max: " + response.main.temp_max + " C° </li>" +
-                        "<li> T° Actual: " + response.main.temp + " C° </li>" +
-                        "<li> Humedad: " + response.main.humidity + "% </li>" +
-                        "<li> Velocidad Viento: " + response.wind.speed + " MPH </li>" +
-                        "<li> Longitud: " + response.coord.lon + " </li>" +
-                        "<li> Latitud: " + response.coord.lat + " </li>" +
+                            "<li> Descripcion : " + response.weather[0].description + " </li>" +
+                            "<li> T° Min: " + response.main.temp_min + " C° </li>" +
+                            "<li> T° Max: " + response.main.temp_max + " C° </li>" +
+                            "<li> T° Actual: " + response.main.temp + " C° </li>" +
+                            "<li> Humedad: " + response.main.humidity + "% </li>" +
+                            "<li> Velocidad Viento: " + response.wind.speed + " MPH </li>" +
+                            "<li> Longitud: " + response.coord.lon + " </li>" +
+                            "<li> Latitud: " + response.coord.lat + " </li>" +
                         "</ul>";
                     $(".resultado").html(result);
 
