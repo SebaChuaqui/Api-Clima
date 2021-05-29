@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <title>Api Clima</title>
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+        $("button").on("click, create request");
+    });
+
+    $(document).ready(function(){
+        $("button").on("click" , function(event){
+            var ciudad = $("input").val();
+            var api_url = "https://api.openweathermap.org/data/2.5/weather?q=" + ciudad +
+                    "&units=imperial&appid=7bf4abbbb051a4972d970fae729d46e2"; 
+            
+            $get(api_url, function(response){
+                var resultado = "<h4>" + response.name + "</h4>" +
+                "<ul>" +
+                "<li> temperatura: " + response.main.temp + " C° </li>" +
+                "<li> humedad: " + response.main.humidity + " % </li>" +
+                "<li> velocidad de viento: " + response.wind.speed + " mph </li>" +
+                "</ul>";
+                $(".result").html(resultado);
+            });
+            });
+        });
+
+    </script>
+</head>
+<body>
+        <h1>El Tiempo En Tu Ciudad</h1>
+        <h3>Tiempo Actual</h3>
+
+</body>
+</html>
